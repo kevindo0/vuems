@@ -7,7 +7,7 @@
     <div class="header">
       <p>Header</p>
     </div>
-    <div class="msg-content">
+    <div ref="message" class="msg-content">
       <div v-for="(item, index) in conversations" :key="index">
         <div v-if="item.id!==2" class="item item-other">
           <div class="head">
@@ -69,6 +69,12 @@ export default {
     }
   },
   methods: {
+    onScroll() {
+      var container = this.$refs.message
+      if (container !== undefined) {
+        container.scrollTop = container.scrollHeight
+      }
+    },
     getWindowHeight() {
       return document.documentElement.clientHeight || window.innerHeight || document.body.clientHeight
     },
@@ -87,8 +93,10 @@ export default {
         name: 'user' + this.value,
         content: this.content
       }
-      console.log(obj)
       this.conversations.push(obj)
+      this.$nextTick(function() {
+        this.onScroll()
+      })
     }
   }
 }
@@ -181,7 +189,7 @@ export default {
 .head-name {
   display: flex;
   justify-content: center;
-  // align-items: center;
+  align-items: center;
   width: 60px;
   height: 60px;
   color: red;
