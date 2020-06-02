@@ -54,7 +54,30 @@ export const constantRoutes = [
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
   },
-
+  {
+    path: '/skills',
+    component: Layout,
+    redirect: '/skills/card',
+    name: 'Skill',
+    meta: {
+      title: '技巧',
+      icon: 'nested'
+    },
+    children: [
+      {
+        path: '/card',
+        name: 'Card',
+        component: () => import('@/views/skills/card'),
+        meta: { title: '翻牌效果', icon: 'form' }
+      },
+      {
+        path: 'tree',
+        name: 'Tree',
+        component: () => import('@/views/tree/index'),
+        meta: { title: 'Tree', icon: 'tree' }
+      }
+    ]
+  },
   {
     path: '/example',
     component: Layout,
@@ -81,6 +104,20 @@ export const constantRoutes = [
         meta: { title: '聊天室', icon: 'user' }
       }
     ]
+  },
+
+  {
+    path: '/eleui',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'element-ui测试',
+        component: () => import('@/views/ele-ui/index'),
+        meta: { title: 'ELE-UI测试', icon: 'form' }
+      }
+    ]
+
   },
 
   {
