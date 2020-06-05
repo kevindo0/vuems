@@ -90,18 +90,21 @@ export const constantRoutes = [
         name: 'Table',
         component: () => import('@/views/table/index'),
         meta: { title: 'Table', icon: 'table' }
-      },
-      {
+      }, {
         path: 'tree',
         name: 'Tree',
         component: () => import('@/views/tree/index'),
         meta: { title: 'Tree', icon: 'tree' }
-      },
-      {
+      }, {
         path: 'chat',
         name: 'Chat',
         component: () => import('@/views/chat/index'),
         meta: { title: '聊天室', icon: 'user' }
+      }, {
+        path: 'dice',
+        name: 'Dice',
+        component: () => import('@/views/flex/dice'),
+        meta: { title: '骰子', icon: 'user' }
       }
     ]
   },
