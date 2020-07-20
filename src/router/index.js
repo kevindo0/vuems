@@ -101,6 +101,11 @@ export const constantRoutes = [
         component: () => import('@/views/chat/index'),
         meta: { title: '聊天室', icon: 'user' }
       }, {
+        path: 'chatmessage',
+        name: 'ChatMessage',
+        component: () => import('@/views/chat/message'),
+        meta: { title: '消息发送', icon: 'user' }
+      }, {
         path: 'dice',
         name: 'Dice',
         component: () => import('@/views/flex/dice'),
